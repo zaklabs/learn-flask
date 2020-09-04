@@ -1,0 +1,8 @@
+__pycache__/
+app/__pycache__/
+app/core/__pycache__/
+app/core/auth/__pycache__/
+app/core/home/__pycache__/
+venv/
+migrations/
+config.py
