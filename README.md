@@ -4,14 +4,14 @@
 
 Repository ini adalah contoh pembuatan web dengan framework python flask. Anda bisa mengakses tutorial membangun web dengan flask dari nol sampai deploy ke server secara terstruktur. Silahkan baca tutorialnya melalui web dibawah ini.
 
-[https://ar-android.github.io/belajar-flask](https://ar-android.github.io/belajar-flask)
+[https://zaklabs.github.io/](https://github.com/zaklabs/learn-flask.git)
 
 ## Setup Project
 Dalam latihan membuat aplikasi web dengan flask ini kita akan membuat aplikasi Dompetku yang terinspirasi dari [dompet](https://github.com/nafiesl/dompet). Yaitu aplikasi pembukuan keungan pribadi.
 
 Untuk menjalakan aplikasi silakan clone repository ini :
 ```
-git clone https://github.com/ar-android/belajar-flask
+git clone https://github.com/zaklabs/learn-flask.git
 ```
 
 Selanjutnya buat file config :
