@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Flask Render Templates - Belajar Flask</title><!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet"><!-- Style -->
+  <link href="https://ar-android.github.io/belajar-flask/dist.css" rel="stylesheet" type="text/css">
+</head>
+<body class="bg-white font-source-sans">
+  <header class="bg-white py-4 px-8 border-b-4 border-blue">
+    <div class="lg:w-3/5 xs:w-full container mx-auto flex justify-between items-center">
+      <div class="border border-transparent">
+        <a class="text-2xl font-thin text-grey-darker tracking-wide no-underline" href="../">Belajar Flask</a>
+      </div>
+      <div class="sm:block md:hidden lg:hidden">
+        <svg class="fill-current text-black inline-block h-6 w-6" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+      </div>
+      <div class="xs:hidden sm:hidden md:block">
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../about.html">About</a>
+        <a class="text-sm font-thin mr-6 no-underline text-black hover:text-blue" href="../hire-me.html">Hire Me</a>
+      </div>
+    </div>
+  </header>
+  <section class="py-8 bg-white flex justify-center">
+    <div class="sm:w-4/5 lg:w-3/5 xs:w-full">
+      <div class="xs:px-4 xs:flex-row md:flex lg:flex items-center">
+        <div class="xs:flex items-center justify-center">
+          <img class="rounded-full" height="70" src="https://cdn-images-1.medium.com/fit/c/60/60/1*tTlJFOCGwUwKxBvUm9z1ZA.jpeg" width="70dp">
+        </div>
+        <div class="xs:text-center xs:mt-4 lg:text-left sm:text-left sm:px-4 lg:m-0">
+          <h3 class="py-0">Ahmad Rosid</h3>
+          <p class="text-grey-darker text-sm font-thin py-1">https://ahmadrosid.com The more I learn, the more I realize how much I don’t know.</p>
+          <p class="text-grey-darker text-sm font-thin py-0">May 28, 2018</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue flex justify-center py-8 lg:px-4 xs:px-0 text-center">
+    <div class="w-full text-white my-8 py-8">
+      <h1 class="text-5xl font-sans text-center">Flask Render Templates</h1>
+      <div class="flex justify-center mb-8">
+        <div class="my-2 w-24 border border-white border-t-2"></div>
+      </div>
+      <p class="text-2xl font-sans text-center">Menulis html pada aplikasi flask.</p>
+    </div>
+  </section>
+
+  <section class="bg-white flex justify-center py-8 text-grey-darkest">
+    <div class="md:w-4/5 lg:w-3/5 xs:w-full sm:px-4 xs:px-4 lg:px-2">
+      <div class="text-lg font-light leading-normal">
+        <h1 id="mvc-design-pattern">Html</h1>
+        <p>Pada tutorial sebelumnya kita sudah bahas tentang static files pada aplikasi flask, kali ini kita akan beranjak sedikit tentang HTML.</p>
+        <a href="../tutorial/flask-static-files.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3 my-6" role="alert">
+            <p class="font-bold">Sebelumnya ( Flask Static File )</p>
+            <p class="text-sm">Mengakses statik file atau data yang tidak berubah,</p>
+          </div>
+        </a>
+        <p>Sebuah tampilan pada aplikasi web di tulis didalam bahasa HTML ( <span class="italic">Hyper Text Markup Language</span> ). Pada tutorial <a href="../tutorial/pendalaman-flask.html#jinja">pendalaman flask</a> sebelumnya kita telah membahas sedikit tentang jinja. Sebuah engine yang di pakai oleh flask untuk memanipulasi script html yang akan kita tampilkan kepada user.</p>
+        <h1>Templates</h1>
+        <p>OK yang pertama kita bahas templates pada flask, jadi templates pada flask yang dimaksud adalah file html yang bisa kita sisipi logic. Kenapa disisi logic? Ya supaya kita bisa mengoptimalkan penulisan html nya, salah satu studi kasusnya adalah kita bisa mengeksted template yang mana dengan begitu kita tidak perlu menulis kode yang sama berulang - ulang.</p>
+        <br>
+        <p>Yang pertama kita bahas terlebih dahulu adalah struktur project sederhana. Jadi file html yang akan di render secara default diletakkan pada folder templates. Berikut ini contoh strukturnya</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+|---app
+    |---app.py
+    |---static
+        |---app.css
+    |---templates
+        |---index.html
+          </code>
+        </pre>
+        <p>Jadi folder templates adalah tempat kita menaruh segala file html yang akan kita gunakan, sedangkan folder static adalah tempat dimana kita akan menaruh file static seperti css misalnya.</p>
+        <h1>Render Template</h1>
+        <p>Ok sekarang bagaimana merender template atau html pada sebuah aplikasi flask? Gampang berikut ini contoh nya :</p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+  return render_template('index.html')
+
+app.run()
+          </code>
+        </pre>
+        <p>Dan berikut ini untuk file index.html : </p>
+        <pre class="my-6 py-0">
+          <code class="font-mono text-sm">
+<span><</span>!DOCTYPE html>
+<span><</span>html>
+<span><</span>head>
+  <span><</span>title> Welcome <<span>/</span>title>
+  <span><</span>link rel="stylesheet" type="text/css" href="/static/app.css">
+<span><</span>/head>
+<span><</span>body>
+  <span><</span>h1> Hello world <span><</span>/h1>
+<span><</span>/body>
+<span><</span>/html>
+          </code>
+        </pre>
+        <h3>Next</h3>
+        <a href="../tutorial/flask-routing.html" class="no-underline">
+          <div class="bg-blue-lightest border-t border-b border-blue text-blue-dark px-4 py-3" role="alert">
+            <p class="font-bold">Selanjutnya - Flask Routing</p>
+            <p class="text-sm">Bagaimana memproses url pada flask.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="flex justify-center bg-blue py-4">
+    <p class="text-white font-light">© 2017 Codecast.id</p>
+  </div>
+</body>
+</html>
